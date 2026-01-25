@@ -22,6 +22,7 @@ def show_menu():
     print("חילוק 4.")
     print("חזקה 5.")
     print("שורש 6.")
+    print("עצרת 7.")
     print("יציאה 0.")
     return input(" :בחר פעולה")
 

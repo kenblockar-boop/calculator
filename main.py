@@ -2,7 +2,7 @@
 # גרסה 3.0 אינטראקטיבי
 
 from operations import add, subtract, multiply, divide
-from advanced import power, square_root, modulo
+from advanced import power, square_root, modulo, factorial
 from ui import get_number, show_menu
 
 print("!ברוכים הבאים למחשבון")
@@ -33,6 +33,12 @@ while True:
             print(f"תוצאה:{square_root(num)}")
         else:
             print("!בחירה לא חוקית")
+
+        if choice == "7":
+            num = get_number("הכנס מספר:")
+            print(f"תוצאה:{factorial(num)}")
+
+
 
 print("\n --- פעולות בסיסיות ---")
 print(f"5 + 3 = {add(5, 3)}")
