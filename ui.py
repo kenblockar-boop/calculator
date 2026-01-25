@@ -1,7 +1,7 @@
 # ממשק משתמש
 
 def get_number(prompt):
-    """מקבל מספר מהמשתמש"""
+    """מקבל מספרים מהמשתמש"""
     while True:
         try:
             return float(input(prompt))
