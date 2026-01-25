@@ -19,3 +19,13 @@ def square_root(n):
 def modulo(a, b):
     """שארית מחילוק"""
     return a % b
+
+def factorial(n):
+    """מחשב עצרת של מספר"""
+    if n < 0:
+        return "!שגיאה: אין עצרת למספר שלילי"
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
