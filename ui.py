@@ -1,0 +1,23 @@
+# ממשק משתמש
+
+def get_number(prompt):
+    """מקבל מספר מהמשתמש"""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("שגיאה! נא להזין מספר")
+
+
+def show_menu():
+    """מציג את התפריט"""
+    print("\n=== תפריט ===")
+    print("חיבור 1.")
+    print("חיסור 2.")
+    print("כפל 3.")
+    print("חילוק 4.")
+    print("חזקה 5.")
+    print("שורש 6.")
+    print("יציאה 0.")
+    return input(" :בחר פעולה")
+
