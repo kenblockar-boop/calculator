@@ -8,3 +8,15 @@ def add(a, b):
 def subtract(a, b):
     """מחסר שני מספרים"""
     return a - b
+
+
+def multiply(a, b):
+    """מכפיל שני מספרים"""
+    return a * b
+
+
+def divide(a, b):
+    """מחלק שני מספרים"""
+    if b == 0:
+        return """שגיאה! אי אפשר לחלק באפס"""
+    return a / b
