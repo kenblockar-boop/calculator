@@ -24,3 +24,14 @@ def find_min(numbers):
     if not numbers:
         return None
     return min(numbers)
+
+
+def median(numbers):
+    """מוצא את החציון"""
+    lst = list(numbers)
+    l = len(lst)
+    if l % 2 == 1:
+        return lst[l // 2]
+    return (lst[l // 2 - 1] + lst[l // 2]) / 2
+
+
