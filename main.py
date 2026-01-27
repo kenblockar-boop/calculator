@@ -10,6 +10,8 @@ from constants import show_constants
 from geometry import circle_area, rectangle_area, triangle_area
 from temperature import celsius_to_fahrenheit, fahrenheit_to_celsius
 from percentage import percent_of, percentage_change, add_percentage, subtract_percentage, what_percent
+from currency import ils_to_usd, ils_to_eur, usd_to_ils, eur_to_ils
+
 
 
 print("╔════════════════════════════╗")
@@ -195,8 +197,6 @@ while True:
 
 
 
-
-
     elif choice == "12":
         while True:
             temperature_menu()
@@ -219,12 +219,46 @@ while True:
                 print("בחירה לא חוקית בתפריט המרת טמפרטורה")
 
 
+    elif choice == "13":
+        while True:
+            currency_menu()
+            currency_choice = input("בחר אפשרות: ")
+
+            if currency_choice == "0":
+                break
+
+            elif currency_choice == "1":
+                amount = get_number("הכנס סכום בשקלים:")
+                result = ils_to_usd(amount)
+                print(f"תוצאה: {result}$")
+                add_to_history(f"{amount} ₪ → $", result)
+
+            elif currency_choice == "2":
+                amount = get_number("הכנס סכום בשקלים:")
+                result = ils_to_eur(amount)
+                print(f"תוצאה: {result}€")
+                add_to_history(f"{amount} ₪ → €", result)
+
+            elif currency_choice == "3":
+                amount = get_number("הכנס סכום בדולרים:")
+                result = usd_to_ils(amount)
+                print(f"תוצאה: {result} ₪")
+                add_to_history(f"{amount} $ → ₪", result)
+
+            elif currency_choice == "4":
+                amount = get_number("הכנס סכום ביורו:")
+                result = eur_to_ils(amount)
+                print(f"תוצאה: {result} ₪")
+                add_to_history(f"{amount} € → ₪", result)
+
+            else:
+                print("בחירה לא חוקית בתפריט המרת מטבעות")
 
     # היסטוריה
-    elif choice == "13":
+    elif choice == "14":
         show_history()
 
-    elif choice == "14":
+    elif choice == "15":
         clear_history()
 
     else:

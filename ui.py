@@ -4,6 +4,7 @@ ui מודול
 .מכיל פונקציות לממשק המשתמש
 """
 
+
 def get_number(prompt):
     """מקבל מספרים מהמשתמש"""
     while True:
@@ -31,6 +32,7 @@ def geometry_menu():
     print("3. שטח משולש")
     print("0. חזרה לתפריט הראשי")
 
+
 def percentages_menu():
     """מציג את התפריט"""
     print("\n--- תפריט אחוזים ---")
@@ -41,6 +43,7 @@ def percentages_menu():
     print("5. כמה אחוז X מתוך Y")
     print("0. חזרה לתפריט הראשי")
 
+
 def temperature_menu():
     print("\n--- תפריט המרת טמפרטורה ---")
     print("1. צלזיוס → פרנהייט")
@@ -48,6 +51,13 @@ def temperature_menu():
     print("0. חזרה לתפריט הראשי")
 
 
+def currency_menu():
+    print("\n--- תפריט המרת מטבעות ---")
+    print("1. שקל → דולר")
+    print("2. שקל → יורו")
+    print("3. דולר → שקל")
+    print("4. יורו → שקל")
+    print("0. חזרה לתפריט הראשי")
 
 
 def show_menu():
@@ -65,11 +75,9 @@ def show_menu():
     print("גאומטריה 10.")
     print("אחוזים 11.")
     print("טמפרטורה 12.")
+    print("המרת מטבעות 13.")
     print("--- היסטוריה ---")
-    print("הצג היסטוריה 13.")
-    print("נקה היסטוריה 14.")
+    print("הצג היסטוריה 14.")
+    print("נקה היסטוריה 15.")
     print("יציאה 0.")
     return input(" :בחר פעולה")
-
-
-
