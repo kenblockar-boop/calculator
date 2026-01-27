@@ -8,8 +8,12 @@ from stats import average, find_max, find_min, median
 from history import add_to_history, show_history, clear_history
 from constants import show_constants
 
-print("!ברוכים הבאים למחשבון")
-print("====================")
+print("╔════════════════════════════╗")
+print("║    !ברוכים הבאים למחשבון    ║")
+print("║           גרסה 4.0         ║")
+print("╚════════════════════════════╝")
+
+
 
 while True:
     choice = show_menu()
