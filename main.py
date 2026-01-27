@@ -8,6 +8,7 @@ from stats import average, find_max, find_min, median
 from history import add_to_history, show_history, clear_history
 from constants import show_constants
 from geometry import circle_area, rectangle_area, triangle_area
+from temperature import celsius_to_fahrenheit, fahrenheit_to_celsius
 
 print("╔════════════════════════════╗")
 print("║    !ברוכים הבאים למחשבון    ║")
@@ -137,13 +138,35 @@ while True:
             print(f"שטח המשולש: {result}")
             add_to_history(f"area of a triangle with base {base} and height {height}", result)
 
+    elif choice == "12":
+        while True:
+            temperature_menu()
+            temp_choice = input("בחר אפשרות: ")
+
+            if temp_choice == "0":
+                break
+
+            elif temp_choice == "1":
+                celsius = get_number("הכנס טמפרטורה בצלזיוס:")
+                result = celsius_to_fahrenheit(celsius)
+                print(f"תוצאה: {result}°F")
+                add_to_history(f"{celsius}°C → °F", result)
+
+            elif temp_choice == "2":
+                fahrenheit = get_number("הכנס טמפרטורה בפרנהייט:")
+                result = fahrenheit_to_celsius(fahrenheit)
+                print(f"תוצאה: {result}°C")
+                add_to_history(f"{fahrenheit}°F → °C", result)
+
+            else:
+                print("בחירה לא חוקית בתפריט המרת טמפרטורה")
 
 
     # היסטוריה
-    elif choice == "11":
+    elif choice == "12":
         show_history()
 
-    elif choice == "12":
+    elif choice == "13":
         clear_history()
 
     else:
