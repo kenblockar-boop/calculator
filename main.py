@@ -1,67 +1,115 @@
 # מחשבון פשוט
-# גרסה 3.0 אינטראקטיבי
+# גרסה 3.1 – מבנה תקין + תפריט סטטיסטיקה
 
 from operations import add, subtract, multiply, divide
 from advanced import power, square_root, modulo, factorial
-from ui import get_number, show_menu
+from ui import get_number, show_menu, statistics_menu
 from stats import average, find_max, find_min, median
+from history import add_to_history, show_history, clear_history
 
 print("!ברוכים הבאים למחשבון")
 print("====================")
 
 while True:
     choice = show_menu()
+
     if choice == "0":
         print("!להתראות")
         break
-    if choice in ["1", "2", "3", "4", "5"]:
+
+    # פעולות בסיסיות
+    elif choice == "1":
         num1 = get_number("הכנס מספר ראשון:")
         num2 = get_number("הכנס מספר שני:")
+        result = add(num1, num2)
+        print(f"תוצאה: {result}")
+        add_to_history(f"{num1} + {num2}", result)
 
-        if choice == "1":
-            print(f"תוצאה:{add(num1, num2)}")
-        elif choice == "2":
-            print(f"תוצאה:{subtract(num1, num2)}")
-        elif choice == "3":
-            print(f"תוצאה:{multiply(num1, num2)}")
-        elif choice == "4":
-            print(f"תוצאה:{divide(num1, num2)}")
-        elif choice == "5":
-            print(f"תוצאה:{power(num1, num2)}")
+    elif choice == "2":
+        num1 = get_number("הכנס מספר ראשון:")
+        num2 = get_number("הכנס מספר שני:")
+        result = subtract(num1, num2)
+        print(f"תוצאה: {result}")
+        add_to_history(f"{num1} - {num2}", result)
 
-        elif choice == "6":
-            num = get_number("הכנס מספר:")
-            print(f"תוצאה:{square_root(num)}")
-        else:
-            print("!בחירה לא חוקית")
+    elif choice == "3":
+        num1 = get_number("הכנס מספר ראשון:")
+        num2 = get_number("הכנס מספר שני:")
+        result = multiply(num1, num2)
+        print(f"תוצאה: {result}")
+        add_to_history(f"{num1} * {num2}", result)
 
-        if choice == "7":
-            num = get_number("הכנס מספר:")
-            print(f"תוצאה:{factorial(num)}")
+    elif choice == "4":
+        num1 = get_number("הכנס מספר ראשון:")
+        num2 = get_number("הכנס מספר שני:")
+        result = divide(num1, num2)
+        print(f"תוצאה: {result}")
+        add_to_history(f"{num1} / {num2}", result)
 
-        if choice == "8":
-            numbers = get_number("הכנס מספרים:")
-            print(f"תוצאה:{average(numbers)}")
+    # פעולות מתקדמות
+    elif choice == "5":
+        num1 = get_number("הכנס מספר:")
+        num2 = get_number("הכנס חזקה:")
+        result = power(num1, num2)
+        print(f"תוצאה: {result}")
+        add_to_history(f"{num1} ** {num2}", result)
 
-        if choice == "9":
-            numbers = get_number("הכנס מספרים:")
-            print(f"תוצאה:{find_max(numbers)}")
+    elif choice == "6":
+        num = get_number("הכנס מספר:")
+        result = square_root(num)
+        print(f"תוצאה: {result}")
+        add_to_history(f"√{num}", result)
 
-        if choice == "10":
-            numbers = get_number("הכנס מספרים:")
-            print(f"תוצאה:{find_min(numbers)}")
+    elif choice == "7":
+        num = get_number("הכנס מספר:")
+        result = factorial(num)
+        print(f"תוצאה: {result}")
+        add_to_history(f"{num}!", result)
 
-        if choice == "11":
-            numbers = get_number("הכנס מספרים:")
-            print(f"תוצאה:{median(numbers)}")
+    # תפריט סטטיסטיקה
+    elif choice == "8":
+        lst_num = []
+        while True:
+            numbers = input("הכנס רשימת מספרים:")
+            if numbers == "0":
+                break
+            lst_num.append(float(numbers))
 
-# print("\n --- פעולות בסיסיות ---")
-# print(f"5 + 3 = {add(5, 3)}")
-# print(f"10 - 4 = {subtract(10, 4)}")
-# print(f"6 * 7 = {multiply(6, 7)}")
-# print(f"20 / 4 = {divide(20, 4)}")
-#
-# print("\n --- פעולות מתקדמות ---")
-# print(f"2 ^ 8 = {power(2, 8)}")
-# print(f"√16 = {square_root(16)}")
-# print(f"17 % 5 = {modulo(17, 5)}")
+        while True:
+            statistics_menu()
+            stat_choice = input("בחר אפשרות: ")
+            if stat_choice == "0":
+                break
+
+            if stat_choice == "1":
+                result = average(lst_num)
+                print(f"ממוצע: {result}")
+                add_to_history(f"average({numbers})", result)
+
+            elif stat_choice == "2":
+                result = find_max(lst_num)
+                print(f"מקסימום: {result}")
+                add_to_history(f"max({numbers})", result)
+
+            elif stat_choice == "3":
+                result = find_min(lst_num)
+                print(f"מינימום: {result}")
+                add_to_history(f"min({numbers})", result)
+
+            elif stat_choice == "4":
+                result = median(lst_num)
+                print(f"חציון: {result}")
+                add_to_history(f"median({numbers})", result)
+
+            else:
+                print("בחירה לא חוקית בתפריט סטטיסטיקה")
+
+    # היסטוריה
+    elif choice == "9":
+        show_history()
+
+    elif choice == "10":
+        clear_history()
+
+    else:
+        print("!בחירה לא חוקית")
