@@ -40,6 +40,7 @@ def percentages_menu():
     print("4. הורדת אחוז מערך")
     print("5. כמה אחוז X מתוך Y")
     print("0. חזרה לתפריט הראשי")
+
 def temperature_menu():
     print("\n--- תפריט המרת טמפרטורה ---")
     print("1. צלזיוס → פרנהייט")

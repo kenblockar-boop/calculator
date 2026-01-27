@@ -140,15 +140,63 @@ while True:
             print(f"שטח המשולש: {result}")
             add_to_history(f"area of a triangle with base {base} and height {height}", result)
 
-   
-            percent_choice = input("בחר אפשרות: ")
-            
+
     elif choice == "11":
         while True:
             percentages_menu()
             percent_choice = input("בחר אפשרות: ")
-            
-            
+
+            if percent_choice == "0":
+                break
+
+            elif percent_choice == "1":
+                number = get_number("הכנס מספר:")
+                percent = get_number("הכנס אחוז:")
+                result = percent_of(number, percent)
+                print(f"תוצאה: {result}")
+                add_to_history(f"{percent}% מ־{number}", result)
+
+            elif percent_choice == "2":
+                old_value = get_number("הכנס ערך מקורי:")
+                new_value = get_number("הכנס ערך חדש:")
+                result = percentage_change(old_value, new_value)
+                print(f"תוצאה: {result}%")
+                add_to_history(
+                    f"אחוז שינוי מ־{old_value} ל־{new_value}",
+                    result
+                )
+
+            elif percent_choice == "3":
+                number = get_number("הכנס מספר:")
+                percent = get_number("הכנס אחוז:")
+                result = add_percentage(number, percent)
+                print(f"תוצאה: {result}")
+                add_to_history(f"{number} + {percent}%", result)
+
+            elif percent_choice == "4":
+                number = get_number("הכנס מספר:")
+                percent = get_number("הכנס אחוז:")
+                result = subtract_percentage(number, percent)
+                print(f"תוצאה: {result}")
+                add_to_history(f"{number} - {percent}%", result)
+
+            elif percent_choice == "5":
+                part = get_number("הכנס חלק:")
+                whole = get_number("הכנס שלם:")
+                result = what_percent(part, whole)
+                print(f"תוצאה: {result}%")
+                add_to_history(
+                    f"{part} מתוך {whole} באחוזים",
+                    result
+                )
+
+            else:
+                print("בחירה לא חוקית בתפריט אחוזים")
+
+
+
+
+
     elif choice == "12":
         while True:
             temperature_menu()
@@ -171,7 +219,6 @@ while True:
                 print("בחירה לא חוקית בתפריט המרת טמפרטורה")
 
 
-            
 
     # היסטוריה
     elif choice == "13":
