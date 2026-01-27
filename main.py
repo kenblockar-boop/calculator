@@ -6,6 +6,7 @@ from advanced import power, square_root, modulo, factorial
 from ui import get_number, show_menu, statistics_menu
 from stats import average, find_max, find_min, median
 from history import add_to_history, show_history, clear_history
+from constants import show_constants
 
 print("!ברוכים הבאים למחשבון")
 print("====================")
@@ -104,11 +105,14 @@ while True:
             else:
                 print("בחירה לא חוקית בתפריט סטטיסטיקה")
 
-    # היסטוריה
     elif choice == "9":
+        show_constants()
+        
+    # היסטוריה
+    elif choice == "10":
         show_history()
 
-    elif choice == "10":
+    elif choice == "11":
         clear_history()
 
     else:
