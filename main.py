@@ -3,17 +3,16 @@
 
 from operations import add, subtract, multiply, divide
 from advanced import power, square_root, modulo, factorial
-from ui import get_number, show_menu, statistics_menu
+from ui import get_number, show_menu, statistics_menu, geometry_menu
 from stats import average, find_max, find_min, median
 from history import add_to_history, show_history, clear_history
 from constants import show_constants
+from geometry import circle_area, rectangle_area, triangle_area
 
 print("╔════════════════════════════╗")
 print("║    !ברוכים הבאים למחשבון    ║")
 print("║           גרסה 4.0         ║")
 print("╚════════════════════════════╝")
-
-
 
 while True:
     choice = show_menu()
@@ -111,12 +110,40 @@ while True:
 
     elif choice == "9":
         show_constants()
-        
-    # היסטוריה
+
+
     elif choice == "10":
+        geometry_menu()
+        geo_choice = input("בחר אפשרות: ")
+        if geo_choice == "0":
+            break
+        elif geo_choice == "1":
+            radius = float(input("enter the radius:"))
+            result = circle_area(radius)
+            print(f"שטח העיגול: {result}")
+            add_to_history(f"circle area of {radius} radius", result)
+
+        elif geo_choice == "2":
+            width = float(input("enter the width:"))
+            height = float(input("enter the height:"))
+            result = rectangle_area(width, height)
+            print(f"שטח המלבן: {result}")
+            add_to_history(f"area of a rectangle with width {width} and height {height}", result)
+
+        elif geo_choice == "3":
+            base = float(input("enter the base:"))
+            height = float(input("enter the height:"))
+            result = triangle_area(base, height)
+            print(f"שטח המשולש: {result}")
+            add_to_history(f"area of a triangle with base {base} and height {height}", result)
+
+
+
+    # היסטוריה
+    elif choice == "11":
         show_history()
 
-    elif choice == "11":
+    elif choice == "12":
         clear_history()
 
     else:
