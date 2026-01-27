@@ -8,6 +8,8 @@ from stats import average, find_max, find_min, median
 from history import add_to_history, show_history, clear_history
 from constants import show_constants
 from geometry import circle_area, rectangle_area, triangle_area
+from percentage import percent_of, percentage_change, add_percentage, subtract_percentage, what_percent
+
 
 print("╔════════════════════════════╗")
 print("║    !ברוכים הבאים למחשבון    ║")
@@ -138,12 +140,63 @@ while True:
             add_to_history(f"area of a triangle with base {base} and height {height}", result)
 
 
+    elif choice == "11":
+        while True:
+            percentages_menu()
+            percent_choice = input("בחר אפשרות: ")
+
+            if percent_choice == "0":
+                break
+
+            elif percent_choice == "1":
+                number = get_number("הכנס מספר:")
+                percent = get_number("הכנס אחוז:")
+                result = percent_of(number, percent)
+                print(f"תוצאה: {result}")
+                add_to_history(f"{percent}% מ־{number}", result)
+
+            elif percent_choice == "2":
+                old_value = get_number("הכנס ערך מקורי:")
+                new_value = get_number("הכנס ערך חדש:")
+                result = percentage_change(old_value, new_value)
+                print(f"תוצאה: {result}%")
+                add_to_history(
+                    f"אחוז שינוי מ־{old_value} ל־{new_value}",
+                    result
+                )
+
+            elif percent_choice == "3":
+                number = get_number("הכנס מספר:")
+                percent = get_number("הכנס אחוז:")
+                result = add_percentage(number, percent)
+                print(f"תוצאה: {result}")
+                add_to_history(f"{number} + {percent}%", result)
+
+            elif percent_choice == "4":
+                number = get_number("הכנס מספר:")
+                percent = get_number("הכנס אחוז:")
+                result = subtract_percentage(number, percent)
+                print(f"תוצאה: {result}")
+                add_to_history(f"{number} - {percent}%", result)
+
+            elif percent_choice == "5":
+                part = get_number("הכנס חלק:")
+                whole = get_number("הכנס שלם:")
+                result = what_percent(part, whole)
+                print(f"תוצאה: {result}%")
+                add_to_history(
+                    f"{part} מתוך {whole} באחוזים",
+                    result
+                )
+
+            else:
+                print("בחירה לא חוקית בתפריט אחוזים")
 
     # היסטוריה
-    elif choice == "11":
+    elif choice == "12":
         show_history()
 
-    elif choice == "12":
+    elif choice == "13":
         clear_history()
 
     else:
