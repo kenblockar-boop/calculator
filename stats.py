@@ -28,10 +28,9 @@ def find_min(numbers):
 
 def median(numbers):
     """מוצא את החציון"""
-    lst = list(numbers)
-    l = len(lst)
+    l = len(numbers)
     if l % 2 == 1:
-        return lst[l // 2]
-    return (lst[l // 2 - 1] + lst[l // 2]) / 2
+        return numbers[l // 2]
+    return (numbers[l // 2 - 1] + numbers[l // 2]) / 2
 
 
